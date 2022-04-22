@@ -1,0 +1,29 @@
+@media (min-width: 1150px) {
+    .onMob {
+        display: none;
+    }
+}
+
+@media (max-width: 1150px) {
+    .onDesc {
+        display: none;
+    }
+
+    .burger {
+        margin-left: auto;
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -330px;
+        z-index: 1111;
+        width: 300px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.13);
+        transition: 0.4s;
+    }
+
+    .header__nav.active {
+        right: 0;
+    }
+}
