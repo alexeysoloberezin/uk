@@ -13,29 +13,58 @@
     <meta name="description" content="">
     
     <title>Home</title>
+    
+    <style>
+        .preloader{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            height: 200vh;
+            background: #F9F9F9;
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .75s;
+        }
+        .preloader.hide{
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body >
+    <div class="preloader">
+        <div class="header__center">
+            <img src="assets/images/WATER.svg" alt="" width="54" height="71">
+            <img src="assets/images/LOGO_FULL.svg" alt="" width="260" height="169">
+            <img src="assets/images/CORONA.svg" alt="" width="54" height="71">
+        </div>
+    </div>
 
     <header class="header">
         <div class="container">
             <div class="header__row">
                 <div>
-                    <a class="header__left onMob" href="./list.html">Venues</a>
-                    <a class="header__left onDesc" href="./list.html">List of Venues</a>
+                    <a class="header__left onMob" href="https://alexeysoloberezin.github.io/uk/list.html">Venues</a>
+                    <a class="header__left onDesc" href="https://alexeysoloberezin.github.io/uk/list.html">List of Venues</a>
                 </div>
     
     
-                <a href="/" class="header__center">
+                <a href="https://alexeysoloberezin.github.io/uk/" class="header__center">
                     <img src="assets/images/WATER.svg" alt="" width="54" height="71">
                     <img src="assets/images/LOGO_FULL.svg" alt="" width="260" height="169">
                     <img src="assets/images/CORONA.svg" alt="" width="54" height="71">
                 </a>
     
                 <nav class="header__nav close-nav">
+                    <div class="header__nav-close close-nav">
+                        <img class="close-nav" src="assets/images/closeWhite.svg" alt="">
+                    </div>
                     <ul>
-                        <div class="header__nav-close close-nav">
-                            <img class="close-nav" src="assets/images/closeWhite.svg" alt="">
-                        </div>
                         <li><a href="#">Search</a></li>
                         <li><a href="#">About</a></li>
                         <li><a href="#">Contact</a></li>
@@ -60,24 +89,23 @@
         <div class="container">
             <h1 class="home__title">
                 Helping venues across the world
-                in the
+                in&nbsp;the
                 <a class="underline" href="#">
                     <span class="text-blue">times of</span>
                     <span class="text-yellow">crisis</span>
                 </a>
             </h1>
-            <a class="home__btn btn-yellow" href="/list.html">I want to support</a>
+            <a class="home__btn btn-yellow" href="https://alexeysoloberezin.github.io/uk/list.html">I want to support</a>
         </div>
     </section>
-    
     
     <div class="tabs">
         <div class="container">
             <ul class="tabs__wrp">
-                <li><a href="./list.html?tab_key=All">All</a></li>
-                <li><a href="./list.html?tab_key=Museums">Museums</a></li>
-                <li><a href="./list.html?tab_key=Theatres">Theatres</a></li>
-                <li><a href="./list.html?tab_key=Zoos">Zoos</a></li>
+                <li><a href="https://alexeysoloberezin.github.io/uk/list.html?tab_key=All">All</a></li>
+                <li><a href="https://alexeysoloberezin.github.io/uk/list.html?tab_key=Museums">Museums</a></li>
+                <li><a href="https://alexeysoloberezin.github.io/uk/list.html?tab_key=Theatres">Theatres</a></li>
+                <li><a href="https://alexeysoloberezin.github.io/uk/list.html?tab_key=Zoos">Zoos</a></li>
             </ul>
         </div>
     </div>

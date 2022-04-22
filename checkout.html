@@ -13,8 +13,38 @@
     <meta name="description" content="">
     
     <title>Checkout</title>
+    
+    <style>
+        .preloader{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vw;
+            height: 200vh;
+            background: #F9F9F9;
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .75s;
+        }
+        .preloader.hide{
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            visibility: hidden;
+        }
+    </style>
 </head>
 <body style="--header: 74px">
+
+    <div class="preloader">
+        <div class="header__center">
+            <img src="assets/images/WATER.svg" alt="" width="54" height="71">
+            <img src="assets/images/LOGO_FULL.svg" alt="" width="260" height="169">
+            <img src="assets/images/CORONA.svg" alt="" width="54" height="71">
+        </div>
+    </div>
 
     <header class="header">
         <div class="container">
@@ -22,11 +52,11 @@
     
             <div class="header__row mini">
                 <div>
-                    <a class="header__left onMob" href="./list.html">Venues</a>
-                    <a class="header__left onDesc" href="./list.html">List of Venues</a>
+                    <a class="header__left onMob" href="https://alexeysoloberezin.github.io/uk/list.html">Venues</a>
+                    <a class="header__left onDesc" href="https://alexeysoloberezin.github.io/uk/list.html">List of Venues</a>
                 </div>
     
-                <a href="/" class="header__center">
+                <a href="https://alexeysoloberezin.github.io/uk/" class="header__center">
                     <img class="header__logo-mini" src="assets/images/LOGO_LIM.svg" alt="" width="36" height="48">
                 </a>
     

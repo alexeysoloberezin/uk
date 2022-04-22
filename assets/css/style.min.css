@@ -296,7 +296,7 @@ h2 {
   color: #111111;
 }
 
-.bottomLine, .tabs ul li:before, .header__left:before, .hoverBottomLine:before, .footer ul a:before, .header__nav ul a:before {
+.bottomLine, .tabs ul li:before, .home .underline:before, .header__left:before, .hoverBottomLine:before, .footer ul a:before, .header__nav ul a:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -392,7 +392,7 @@ h2 {
 
 .home {
   flex-direction: column;
-  min-height: calc(100vh - 215px);
+  min-height: calc(100vh - 215px - 96px);
   padding: 0 0 19px 0;
   margin-bottom: -19px;
 }
@@ -422,6 +422,14 @@ h2 {
   text-transform: uppercase;
   margin: 93px auto 0;
 }
+.home .underline {
+  display: inline-block;
+  position: relative;
+}
+.home .underline:before {
+  bottom: -10px;
+  transform: scale(1);
+}
 
 .tabs {
   height: 115px;
@@ -430,7 +438,9 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   line-height: 72px;
+  margin: 0 -8px;
 }
 .tabs ul a {
   font-size: 24px;
@@ -439,6 +449,7 @@ h2 {
 }
 .tabs ul li {
   position: relative;
+  margin: 0 8px;
 }
 .tabs ul li:before {
   bottom: 21px;
@@ -457,8 +468,8 @@ h2 {
   grid-column-gap: 40px;
 }
 .list__item .sel {
-  width: calc(100% - 70px);
-  min-width: calc(100% - 70px);
+  width: calc(100% - 90px);
+  min-width: calc(100% - 90px);
 }
 .list__item .sel .custom-select {
   min-width: initial;
