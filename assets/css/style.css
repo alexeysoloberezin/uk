@@ -520,7 +520,10 @@ h2 {
     justify-content: space-between;
     -ms-flex-align: center;
     align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     line-height: 72px;
+    margin: 0 -8px;
 }
 
 .tabs ul a {
@@ -531,6 +534,7 @@ h2 {
 
 .tabs ul li {
     position: relative;
+    margin: 0 8px;
 }
 
 .tabs ul li:before {

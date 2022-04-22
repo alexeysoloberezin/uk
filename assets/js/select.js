@@ -1,4 +1,5 @@
 const CustomSelect = (($) => {
+
     const defaults = {
         block: 'custom-select',
         hideCallback: false,
@@ -70,15 +71,15 @@ const CustomSelect = (($) => {
          */
         _init() {
             this._$element = $(
-              `<div class="${this._options.block}">
+                `<div class="${this._options.block}">
            <button class="${this._options.block}__option ${this._options.block}__option--value" type="button"></button>
            <div class="${this._options.block}__dropdown" style="display: none;"></div>
          </div>`
             );
 
             this._$select
-              .hide()
-              .after(this._$element);
+                .hide()
+                .after(this._$element);
 
             if (this._options.modifier) {
                 this._$element.addClass(this._options.modifier);
@@ -121,7 +122,7 @@ const CustomSelect = (($) => {
             $.each(this._values, (i, el) => {
                 const cssClass = this._$values.eq(i).attr('class');
                 const $option = $(
-                  `<button class="${this._options.block}__option" type="button">${el}</button>`
+                    `<button class="${this._options.block}__option" type="button">${el}</button>`
                 );
                 const $selected = this._$select.find(':selected');
 
@@ -132,9 +133,9 @@ const CustomSelect = (($) => {
                 if ((!$selected.length && i === 0) || el === $selected.text().trim()) {
                     if (!placeholder) {
                         this._$value
-                          .text(el)
-                          .removeClass(this._$value.data('class')).removeData('class')
-                          .addClass(cssClass).data('class', cssClass);
+                            .text(el)
+                            .removeClass(this._$value.data('class')).removeData('class')
+                            .addClass(cssClass).data('class', cssClass);
                     }
 
                     if (this._options.includeValue || placeholder) {
@@ -226,8 +227,8 @@ const CustomSelect = (($) => {
 
             this._$dropdown.slideUp(this._options.transition, () => {
                 this._$element
-                  .removeClass(this._activeModifier)
-                  .removeClass(this._dropupModifier);
+                    .removeClass(this._activeModifier)
+                    .removeClass(this._dropupModifier);
 
                 // Close callback
                 if (typeof this._options.hideCallback === 'function') {
@@ -235,10 +236,10 @@ const CustomSelect = (($) => {
                 }
 
                 this._$value
-                  .off('click')
-                  .one('click', event => {
-                      this._show(event);
-                  });
+                    .off('click')
+                    .one('click', event => {
+                        this._show(event);
+                    });
                 $(document).off('touchstart click', this._outside);
                 $(window).off('resize scroll', this._dropup);
             });
@@ -287,8 +288,8 @@ const CustomSelect = (($) => {
             const values = [...this._values];
 
             this._$value
-              .text(choice)
-              .removeClass(this._$value.data('class'));
+                .text(choice)
+                .removeClass(this._$value.data('class'));
             this._$values.prop('selected', false);
 
             $.each(values, (i, el) => {
@@ -436,7 +437,7 @@ const CustomSelect = (($) => {
             const $visible = this._$options.filter(':visible').not('[disabled]');
 
             switch (event.which) {
-              // Down
+                // Down
                 case 40:
                     event.preventDefault();
 
@@ -450,7 +451,7 @@ const CustomSelect = (($) => {
                     $visible.eq(this._options.index).focus();
                     break;
 
-              // Up
+                // Up
                 case 38:
                     event.preventDefault();
 
@@ -464,10 +465,10 @@ const CustomSelect = (($) => {
                     $visible.eq(this._options.index).focus();
                     break;
 
-              // Enter
+                // Enter
                 case 13:
 
-              // Space
+                // Space
                 case 32:
                     if (!this._$input || !this._$input.is(':focus')) {
                         event.preventDefault();
@@ -482,7 +483,7 @@ const CustomSelect = (($) => {
                     }
                     break;
 
-              // Esc
+                // Esc
                 case 27:
                     event.preventDefault();
 
@@ -526,91 +527,3 @@ const CustomSelect = (($) => {
     return CustomSelect;
 
 })($);
-
-function tabs() {
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-        get: (searchParams, prop) => searchParams.get(prop),
-    });
-    // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-    let queryTab = params.tab_key;
-
-    const tab = $('.tabs__wrp li')
-    const inputTab = $('.tabVal')
-
-    if (queryTab){
-        tab.each(function () {
-            if (queryTab === $(this).text()) {
-                $(this).addClass('active')
-                inputTab.val(queryTab)
-            }
-        })
-    }else{
-        $('.tab-all').addClass('active')
-    }
-
-
-    if ($('.tabs__wrp').data('type') === 'noLinks') {
-        tab.click(function (e) {
-            e.preventDefault()
-            tab.removeClass('active')
-            $(this).addClass('active')
-            if (inputTab) inputTab.val($(this).text())
-        })
-    }
-}
-
-function selectCard(){
-    $('.selectCard').change(function (e){
-        const selectText = $(this).next().find('.custom-select__option--value').text()
-        const parentItem = $(this).closest('.list__item')
-        const parentBtn = parentItem.find('.btn')
-        const parentBtnCheck = parentItem.find('.btn-check')
-        const itemPrice = parentItem.find('.list__item-price span').text()
-
-        if (selectText !== 'Quantity of Tickets') {
-            // set price
-            const selectValue = selectText.split(' ')[0]
-            // lastPrice = this.is price (40 or 50 ....)
-            const lastPrice = (selectValue * itemPrice).toFixed(2)
-            parentBtnCheck.text('Checkout - ' + '$ ' + lastPrice)
-            parentItem.addClass('selected')
-        }else{
-            parentItem.removeClass('selected')
-        }
-    })
-}
-
-
-function mobileNav(){
-    $('.burger').click(function (){
-        $('.header__nav').addClass('active')
-    })
-
-
-    $('.header__nav, .header__nav-close').click((e) => {
-        console.log(e.target)
-
-        if (e.target.classList.contains('close-nav')){
-            $('.header__nav').removeClass('active')
-        }
-    })
-}
-
-function init() {
-    $('select').customSelect();
-    tabs()
-    selectCard()
-    mobileNav()
-}
-
-$(document).ready(function () {
-    try {
-        init()
-    }catch (e){
-        console.log("ERROR", e)
-    }
-
-    // preload time show
-    setTimeout(() => {$('.preloader').addClass('hide')}, 1000)
-})
-
